@@ -2,4 +2,7 @@ extends layout
 
 block content
   h1= title
-  p Welcome to #{title}
+  each message in messages 
+    div 
+      h3= message.title 
+      p= message.text

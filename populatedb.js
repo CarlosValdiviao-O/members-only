@@ -48,7 +48,7 @@ console.log(
     const message = new Message({ 
       title: title, 
       text: text,
-      author: user,
+      user: user,
       timestamp: new Date(), 
     });
     await message.save();
