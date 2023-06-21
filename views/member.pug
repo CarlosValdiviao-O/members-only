@@ -1,0 +1,16 @@
+extends layout
+
+block content
+  h1 #{title}
+  p Wanna enter? Just ask for iiit
+
+  form(method='POST' action='')
+    div
+      label(for='password') Secret Password:
+      input#password(type='text', placeholder='' name='password')
+    .image 
+      img(src="../images/password.gif", alt="LETMEIIIIIN!!")
+    button(type='submit') Confirm
+  if error
+   ul(class='errors')
+    li!= 'Keep trying champ'

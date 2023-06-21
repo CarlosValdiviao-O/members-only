@@ -34,7 +34,7 @@ passport.use(
     try {
       const user = await User.findOne({ mail: username });
       if (!user) {
-        return done(null, false, { message: "Incorrect mail" });
+        return done(null, false, { message: "User doesn't exist" });
       };
       bcrypt.compare(password, user.password, (err, res) => {
         if (res) {

@@ -26,4 +26,8 @@ UserSchema.virtual('name').get(function() {
     return `${this.first_name} ${this.last_name}`;
 })
 
+UserSchema.virtual('status_formatted').get(function() {
+  return this.status[0].toUpperCase() + this.status.substring(1);
+})
+
 module.exports = mongoose.model("User", UserSchema);

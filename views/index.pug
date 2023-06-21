@@ -1,8 +1,17 @@
 extends layout
 
 block content
-  h1= title
-  each message in messages 
-    div 
-      h3= message.title 
-      p= message.text
+  div.content
+    h1= title
+    each message in messages 
+      div.message 
+        h3= message.title 
+        p= message.text
+        div.bottom
+          if (user && user.status != 'user')
+            p= message.user.name 
+            p= message.date 
+          else 
+            p ???
+            p ???
+

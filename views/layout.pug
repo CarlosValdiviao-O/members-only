@@ -5,10 +5,17 @@ html
     link(rel='stylesheet', href='/stylesheets/style.css')
   body
     nav 
-      h1 Home
+      a(href="/") Home 
       if user 
-        p= user.name 
-        a(href="/log-out") Log-Out 
+        if (user.status == 'user') 
+          a(href="/member") Become a Member 
+        if (user.status != 'admin')
+          a(href='/admin') Become an Admin
+        a(href="/message") Create Message 
+        div.user
+          p= user.status_formatted + ': ' + user.name 
+          a(href="/log-out") Log-Out 
       else 
         a(href="/log-in") Log-In 
+        a(href="/sign-in") Sign-In 
     block content

@@ -7,6 +7,6 @@ exports.index = asyncHandler(async (req, res, next) => {
   res.render('index', {
     title: 'Members Only',
     messages: messages, 
-    user: req.user
+    user: res.locals.currentUser
   })
 });

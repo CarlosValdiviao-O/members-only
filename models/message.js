@@ -8,4 +8,8 @@ const MessageSchema = new Schema({
     timestamp: { type: Date, required: true },
 });
 
+MessageSchema.virtual('date').get(function() {
+    return new Date(this.timestamp).toDateString();
+})
+
 module.exports = mongoose.model('Message', MessageSchema);

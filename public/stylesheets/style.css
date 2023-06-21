@@ -1,8 +1,147 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body {
-  padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-color: #313338;
+  color: #fffcff;
+}
+
+nav {
+  display: flex;
+  box-shadow: 0px 2px black;
+  padding: 10px 20px;
+}
+
+nav > a:first-child {
+  margin-right: auto;
+}
+
+nav > * {
+  padding: 4px 8px;
+  font-size: larger;
+}
+
+.user {
+  position: relative;
+}
+
+.user>a {
+  transition: all ease-in .3s;
+  position: absolute;
+  top: 100%;
+  right: 0;
+  padding: 4px 8px;
+  white-space: nowrap;
+  background-color: transparent;
+  color: transparent;
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+
+.user:hover>a {
+  transform: translateY(0);
+  color: #fffcff;
+  background-color: #313338;
+  pointer-events: all;
 }
 
 a {
-  color: #00B7FF;
+  color: #fffcff;
+  text-decoration: none;
+  border-radius: 4px;
+  transition: all ease-in-out .3s;
 }
+
+a:hover {
+  background-color: rgba(28, 29, 32, 0.7) !important;
+}
+
+.content {
+  padding: 10px 20px;
+  max-width: 800px;
+  margin: auto;
+  margin-top: 16px;
+}
+
+.message {
+  border-radius: 8px;
+  margin: 10px 0;
+  border: solid 1px rgba(28, 29, 32, 0.7);
+  box-shadow: 2px 2px rgba(28, 29, 32, 0.7);
+  padding: 8px;
+  word-break: break-all;
+}
+
+.message > * {
+  margin-bottom: 4px;
+}
+
+.message .bottom {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 12px;
+}
+
+form {
+  margin: 16px auto;
+  border: 1px solid rgba(28, 29, 32, 0.7);
+  border-radius: 8px;
+  padding: 18px;
+  font-size: large;
+}
+
+form > div {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  align-items: center;
+  justify-content: left;
+  margin: 6px 0 18px;
+  align-items: flex-start;
+}
+
+form input, form textarea, form select {
+  border: 1px solid rgba(28, 29, 32, 0.7);
+  border-radius: 2px;
+  font-size: large;
+  width: 100%;
+  padding: 3px 6px;
+  resize: none;
+  background-color: #fffcff;
+  color: #313338;
+}
+
+form button {
+  padding: 12px 8px;
+  background-color: #313338;
+  cursor: pointer;
+  color: #fffcff;
+  border-radius: 4px;
+  box-shadow: 2px 2px rgba(28, 29, 32, 0.7);
+  transition: .2 ease-in-out all;
+  font-weight: bold;
+  font-size: large;
+}
+
+form button:active {
+  transform: translateY(2px);
+  box-shadow: -2px -2px rgba(28, 29, 32, 0.7);
+}
+
+.content .errors {
+  margin: 0 auto;
+  list-style: none;
+  color: red;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.errors li::before {
+  content: '**';
+}
+

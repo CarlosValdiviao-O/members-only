@@ -1,0 +1,16 @@
+extends layout
+
+block content
+  div.content
+    h1 #{title}
+
+    form(method='POST' action='')
+      div
+        label(for='username') Your Mail:
+        input#mail(type='text', placeholder='' name='username' value=username ? username : '')
+        label(for='password') Password:
+        input#password(type='password', placeholder='' name='password')
+      button(type='submit') Confirm
+    if message
+      ul(class='errors')
+        li!= message
