@@ -1,4 +1,3 @@
-const Message = require("../models/message");
 const asyncHandler = require("express-async-handler");
 const User = require('../models/user');
 const passport = require("passport");
@@ -135,8 +134,6 @@ exports.member_get = asyncHandler(async (req, res, next) => {
 });
 
 exports.member_post = asyncHandler(async (req, res, next) => {
-  //console.log({typed: req.body.password,
-  //legit: process.env.MEMBER_PASSWORD})
   if (req.body.password === process.env.MEMBER_PASSWORD) {  
     const user = new User(res.locals.currentUser);
     user.status = 'member';
@@ -151,3 +148,28 @@ exports.member_post = asyncHandler(async (req, res, next) => {
     })
   }
 });  
+
+exports.admin_get = asyncHandler(async (req, res, next) => {
+  if (res.locals.currentUser == undefined || res.locals.currentUser.status == 'admin')
+    res.redirect('/');
+  res.render('admin', {
+    title: 'Admin Password',
+    user: res.locals.currentUser
+  })
+});
+
+exports.admin_post = asyncHandler(async (req, res, next) => {
+  if (req.body.password === process.env.ADMIN_PASSWORD) {  
+    const user = new User(res.locals.currentUser);
+    user.status = 'admin';
+    await User.findByIdAndUpdate(res.locals.currentUser._id, user, {});
+    res.redirect('/');
+  }
+  else {
+    res.render('member', {
+      title: 'Member Password',
+      user: res.locals.currentUser,
+      error: true,
+    })
+  }
+}); 

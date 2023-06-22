@@ -8,12 +8,16 @@ block content
       div
         label(for='first_name') First Name:
         input#first_name(type='text', placeholder='' name='first_name' value=user ? user.first_name : '' required=true)
+      div  
         label(for='last_name') Last Name:
         input#last_name(type='text', placeholder='' name='last_name' value=user ? user.last_name : '' required=true)
+      div 
         label(for='username') Your Mail:
         input#username(type='email', placeholder='' name='username' value=user ? user.mail : '' required=true)
+      div 
         label(for='password') Password:
         input#password(type='password', placeholder='' name='password' required=true)
+      div 
         label(for='confirm') Confirm Password:
         input#confirm(type='password', placeholder='' name='confirm' required=true)
       button(type='submit') Confirm

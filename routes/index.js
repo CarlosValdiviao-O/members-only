@@ -6,6 +6,11 @@ const message_controller = require("../controllers/messageController");
 
 router.get('/', message_controller.index);
 
+router.get('/message', message_controller.message_get);
+
+router.post('/message', message_controller.message_post);
+
+router.post('/delete/:id', message_controller.delete);
 
 router.get('/log-in', user_controller.log_in_get);
 
@@ -21,8 +26,8 @@ router.get('/member', user_controller.member_get);
 
 router.post('/member', user_controller.member_post);
 
-//router.get('/admin', user_controller.admin_get);
+router.get('/admin', user_controller.admin_get);
 
-//router.post('/admin', user_controller.admin_post);
+router.post('/admin', user_controller.admin_post);
 
 module.exports = router;

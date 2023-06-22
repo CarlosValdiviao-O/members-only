@@ -1,0 +1,18 @@
+extends layout
+
+block content
+  div.content
+    h1 #{title}
+
+    form(method='POST' action='')
+      div
+        label(for='title') Title:
+        input#title(type='text', placeholder='' name='title' value=message ? message.title : '' required=true)
+      div  
+        label(for='text') Text:
+        textarea#text(rows=5, placeholder='' name='text' required=true) #{message ? message.text : '' }
+      button(type='submit') Confirm
+    if errors
+      ul(class='errors')
+        for error in errors
+          li!= error.msg || error.message
