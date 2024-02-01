@@ -94,7 +94,7 @@ exports.sign_in_post = [
       // There are errors. Render the form again with sanitized values/error messages.
       user.first_name = validator.unescape(user.first_name);
       user.last_name = validator.unescape(user.last_name);
-      user.mail = validator.unescape(user.username);
+      user.mail = validator.unescape(user.mail);
       res.render("signin_form", {
         title: "Sign In",
         user: user,
