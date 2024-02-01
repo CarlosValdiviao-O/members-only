@@ -6,7 +6,7 @@ html
   body
     nav 
       a(href="/") Home 
-      if user 
+      if user && !errors
         if (user.status == 'user') 
           a(href="/member") Become a Member 
         if (user.status != 'admin')
